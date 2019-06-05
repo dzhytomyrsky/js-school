@@ -28,12 +28,11 @@ console.log(
   
 // 3. если метод принимет многомерный массив, он должен "сплюснуть" его на одно измерение
 const flatten = (arr) => arr.reduce((res, e) => {
-    Array.isArray(e)
-        ? res = [...res, ...e]
-        : res.push(e);
-
-    return res;
-}, []);
+    return Array.isArray(e)
+        ? [...res, ...e]
+        : [...res, e]
+}
+, []);
 
 console.log('flatten([1, [2, [3, [4]], 5]] =>', flatten([1, [2, [3, [4]], 5]]));
 // => [1, 2, [3, [4]], 5]
